@@ -9,7 +9,7 @@ namespace Domain.Modeling.BaseEntities
 
         public object Clone()
         {
-            return MemberwiseClone();
+            return new EventBase { CreateTime = this.CreateTime, FinishTime = this.FinishTime };
         }
     }
 }

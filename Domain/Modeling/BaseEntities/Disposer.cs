@@ -22,6 +22,7 @@ namespace Domain.Modeling.BaseEntities
         public override void DisplayStatistic(double simulateTime)
         {
             Console.WriteLine($"[Disposer] ({Name}) caught: {InputEvents} events");
+            Console.WriteLine($"Average time in simulation : {SumEventsTimeInProcessing / InputEvents}");
         }
 
         public override void DoStatistic(double changedTime) { }
