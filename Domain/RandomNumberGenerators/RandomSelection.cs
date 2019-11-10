@@ -26,6 +26,20 @@ namespace Domain.RandomNumberGenerators
             return CalculateIndex(probabilities);
         }
 
+        public List<(T element, double probability)> WeightToPercent<T>(IList<(T element, int weight)> possibleElements)
+        {
+            int totalWeight = possibleElements.Sum(el => el.weight);
+
+            return possibleElements.Select(element => (element.element, (double)element.weight / totalWeight)).ToList();
+        }
+
+        public List<(T element, double probability)> PercentToPercent<T>(IList<(T element, double percent)> possibleElements)
+        {
+            double totalPercent = possibleElements.Sum(el => el.percent);
+
+            return possibleElements.Select(element => (element.element, element.percent / totalPercent)).ToList();
+        }
+
         // sum of probabilities should be - 1.00
         // cumulative distribution
         private int CalculateIndex(IList<double> probabalities)

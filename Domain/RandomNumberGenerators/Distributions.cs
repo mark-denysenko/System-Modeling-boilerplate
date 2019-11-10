@@ -5,6 +5,7 @@
         None,
         Exponential,
         Unifrom,
-        Normal
+        Normal,
+        Erlang
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Domain.Modeling.Abstract;
 
 namespace Domain.Modeling.BaseEntities
