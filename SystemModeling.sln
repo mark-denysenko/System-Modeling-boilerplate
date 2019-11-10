@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelingClient", "ModelingClient\ModelingClient.csproj", "{DFF80668-904B-42DE-9068-FE70A17FFE51}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{C32D1BC3-E6A9-48B1-9A9C-B3C787B401DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital", "Hospital\Hospital.csproj", "{323A14B1-4C0F-47AE-B1E0-C0DE24C02F6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFF80668-904B-42DE-9068-FE70A17FFE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFF80668-904B-42DE-9068-FE70A17FFE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFF80668-904B-42DE-9068-FE70A17FFE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFF80668-904B-42DE-9068-FE70A17FFE51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C32D1BC3-E6A9-48B1-9A9C-B3C787B401DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C32D1BC3-E6A9-48B1-9A9C-B3C787B401DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C32D1BC3-E6A9-48B1-9A9C-B3C787B401DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C32D1BC3-E6A9-48B1-9A9C-B3C787B401DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{323A14B1-4C0F-47AE-B1E0-C0DE24C02F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323A14B1-4C0F-47AE-B1E0-C0DE24C02F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323A14B1-4C0F-47AE-B1E0-C0DE24C02F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323A14B1-4C0F-47AE-B1E0-C0DE24C02F6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
