@@ -24,7 +24,7 @@ namespace ModelingClient
             var processorGenerator = RandomGeneratorsFactory.GetExponential(processDelay);
             const int processMaxQueue = 5;
 
-            var creator = new Creator("creator", creatorGenerator);
+            var creator = new Creator<EventBase>("creator", creatorGenerator);
 
             var process1 = new Processor("process1", processorGenerator, processMaxQueue, 1);
             var process2 = new Processor("process2", processorGenerator, processMaxQueue, 1);
@@ -55,7 +55,7 @@ namespace ModelingClient
             },
             SimulateTime);
 
-            model.Simulate(true);
+            model.Simulate(false);
             model.PrintResultStatistic();
         }
     }

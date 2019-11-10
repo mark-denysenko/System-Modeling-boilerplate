@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Domain.Modeling.BaseEntities
 {
@@ -14,12 +13,15 @@ namespace Domain.Modeling.BaseEntities
         public override double NextEventTime { get => double.MaxValue; }
 
         public Branch(IList<(SchemaElementBase element, int weight)> possibleElements) 
-            : this(WeightToPercent(possibleElements)) { }
+            : base("branch", () => 0d)
+        {
+            this.possibleElements = randomSelection.WeightToPercent(possibleElements);
+        }
 
         public Branch(IList<(SchemaElementBase element, double percent)> possibleElements) 
             : base("branch", () => 0d)
         {
-            this.possibleElements = PercentToPercent(possibleElements);
+            this.possibleElements = randomSelection.PercentToPercent(possibleElements);
         }
 
         public override void InAct(EventBase e)
@@ -34,19 +36,5 @@ namespace Domain.Modeling.BaseEntities
         }
 
         public override void DoStatistic(double changedTime) { }
-
-        private static IList<(SchemaElementBase element, double probability)> WeightToPercent(IList<(SchemaElementBase element, int weight)> possibleElements)
-        {
-            int totalWeight = possibleElements.Sum(el => el.weight);
-
-            return possibleElements.Select(element => (element.element, (double)element.weight / totalWeight)).ToList();
-        }
-
-        private static IList<(SchemaElementBase element, double probability)> PercentToPercent(IList<(SchemaElementBase element, double percent)> possibleElements)
-        {
-            double totalPercent = possibleElements.Sum(el => el.percent);
-
-            return possibleElements.Select(element => (element.element, element.percent / totalPercent)).ToList();
-        }
     }
 }
