@@ -6,6 +6,8 @@ namespace Domain.Modeling.BaseEntities
     {
         public override double NextEventTime { get => double.MaxValue; }
 
+        public double SumEventsTimeInProcessing { get; private set; }
+
         public Disposer(string name) : base(name, () => 0d) { }
 
         public override void InAct(EventBase e)
@@ -13,6 +15,8 @@ namespace Domain.Modeling.BaseEntities
             base.InAct(e);
             e.FinishTime = CurrentTime;
             OutAct();
+
+            SumEventsTimeInProcessing += (e.FinishTime - e.CreateTime);
         }
 
         public override void DisplayStatistic(double simulateTime)
