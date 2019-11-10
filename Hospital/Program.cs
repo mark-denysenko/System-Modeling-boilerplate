@@ -11,7 +11,7 @@ namespace Hospital
 {
     class Program
     {
-        private static double SimulationTime = 1000d;
+        private static double SimulationTime = 10000d;
 
         static void Main(string[] args)
         {

@@ -4,7 +4,7 @@ using Domain.Modeling.BaseEntities;
 
 namespace Hospital.HospitalVisitors
 {
-    public class BaseVisitor : EventBase
+    public class BaseVisitor : EventBase, ICloneable
     {
         private static Dictionary<VisitorType, double> visitorRegistrationTime = new Dictionary<VisitorType, double>
         {
@@ -20,6 +20,11 @@ namespace Hospital.HospitalVisitors
             {
                 return visitorRegistrationTime[VisitorType];
             }
+        }
+
+        public override object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

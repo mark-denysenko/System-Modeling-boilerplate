@@ -7,7 +7,7 @@ namespace Domain.Modeling.BaseEntities
         public double CreateTime { get; set; } = double.MinValue;
         public double FinishTime { get; set; } = double.MinValue;
 
-        public object Clone()
+        public virtual object Clone()
         {
             return new EventBase { CreateTime = this.CreateTime, FinishTime = this.FinishTime };
         }
