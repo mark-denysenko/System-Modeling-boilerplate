@@ -21,7 +21,7 @@ namespace Hospital.HospitalProcessing
 
             var exits = Elements.Where(el => el is Disposer).Select(el => el as Disposer).ToList();
 
-            Console.WriteLine($"Average time in clinic: {exits.Select(ex => ex.SumCustomersTimeInBank / ex.CompletedEvents).Sum() / exits.Count}");
+            Console.WriteLine($"Average time in clinic: {exits.Select(ex => ex.SumEventsTimeInProcessing / ex.CompletedEvents).Sum() / exits.Count}");
         }
     }
 }
