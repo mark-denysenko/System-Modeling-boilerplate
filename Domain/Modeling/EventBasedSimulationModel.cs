@@ -18,38 +18,32 @@ namespace Domain.Modeling
 
         public virtual void Simulate(bool withStepInfo)
         {
-            double currentTime = 0.0;
+            double currentTime = GetNextEventTime();
 
             while (currentTime < SimulateTime)
             {
-                var timeNextEvent = SimulateIteration(currentTime);
-
-                //if (timeNextEvent <= currentTime)
-                //    break;
-
-                currentTime = timeNextEvent;
+                UpdateElementsTime(currentTime);
 
                 if (withStepInfo)
                 {
                     PrintElementsInfo(currentTime);
                 }
+
+                currentTime = GetNextEventTime();
             }
         }
 
-        /// <summary>
-        /// Go through elements and search for next event
-        /// </summary>
-        /// <returns>next event time</returns>
-        public virtual double SimulateIteration(double currentTime)
+        public virtual double GetNextEventTime()
         {
-            double tnext = Elements.Min(element => element.NextEventTime);
+            return Elements.Min(element => element.NextEventTime);
+        }
 
+        public virtual void UpdateElementsTime(double newTime)
+        {
             foreach (var e in Elements)
             {
-                e.CurrentTime = tnext;
+                e.CurrentTime = newTime;
             }
-
-            return tnext;
         }
 
         public virtual void PrintElementsInfo(double currentTime)
