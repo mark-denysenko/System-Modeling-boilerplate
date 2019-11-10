@@ -15,7 +15,7 @@ namespace Domain.Modeling.BaseEntities
         #endregion
 
         public int QueueLimit { get; set; }
-        public IEnumerable<EventBase> Queue { get => eventsQueue; set => eventsQueue = new Queue<EventBase>(value); }
+        public virtual IEnumerable<EventBase> Queue { get => eventsQueue; set => eventsQueue = new Queue<EventBase>(value); }
         public override ExecutionState ExecutionState { get => cores.Select(c => c.ExecutionState).Min(); }
         public override double NextEventTime { get => cores.Select(c => c.NextEventTime).Min(); }
         public override double CurrentTime
@@ -60,9 +60,9 @@ namespace Domain.Modeling.BaseEntities
                 var finishedEvent = core.OutAct();
                 NextElement.InAct(finishedEvent);
 
-                if (eventsQueue.Any())
+                if (Queue.Any())
                 {
-                    core.InAct(eventsQueue.Dequeue());
+                    core.InAct(Queue.First());
                 }
             }
         }
