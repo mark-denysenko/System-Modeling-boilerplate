@@ -31,8 +31,8 @@ namespace Domain.Modeling.BaseEntities
             }
         }
 
-        private IEnumerable<Core> cores { get; set; }
-        private Queue<EventBase> eventsQueue { get; set; }
+        protected IEnumerable<Core> cores { get; set; }
+        protected Queue<EventBase> eventsQueue { get; set; }
 
         public Processor(string name, Func<double> delayGenerator, int maxQueue = 5, int cores = 1) 
             : base(name, delayGenerator)

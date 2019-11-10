@@ -48,5 +48,25 @@ namespace Domain.RandomNumberGenerators
 
             return randStdNormal;
         }
+
+        /// <param name="k">shape</param>
+        /// <param name="alpha">rate</param>
+        public static Func<double> Erlang(int k, double alpha)
+        {
+            var random = new Random(NewSeed);
+
+            return () =>
+            {
+                double g = 0.0;
+
+                for (int i = 0; i < k; i++)
+                {
+                    // uniform (0; 1]
+                    g += Math.Log(random.NextDouble());
+                }   // construct the gamma distribution
+
+                return (-1 / alpha) * g;
+            };
+        }
     }
 }

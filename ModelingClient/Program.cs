@@ -10,7 +10,7 @@ namespace ModelingClient
     {
         static void Main(string[] args)
         {
-            //Lab3();
+            Lab3();
             Console.ReadKey();
         }
 
