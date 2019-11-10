@@ -14,6 +14,12 @@ namespace Hospital.HospitalVisitors
         };
 
         public VisitorType VisitorType { get; set; }
-        public double RegistrationTime { get; set; }
+        public double RegistrationTime
+        {
+            get
+            {
+                return visitorRegistrationTime[VisitorType];
+            }
+        }
     }
 }
