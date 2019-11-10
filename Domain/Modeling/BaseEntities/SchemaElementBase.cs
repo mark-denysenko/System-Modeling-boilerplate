@@ -43,7 +43,10 @@ namespace Domain.Modeling.BaseEntities
             if (CurrentTime >= NextEventTime)
             {
                 var finishedEvent = OutAct();
-                NextElement?.InAct(finishedEvent);
+                if(finishedEvent != null)
+                {
+                    NextElement?.InAct(finishedEvent);
+                }
             }
         }
 

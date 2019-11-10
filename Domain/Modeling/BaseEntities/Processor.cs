@@ -62,7 +62,7 @@ namespace Domain.Modeling.BaseEntities
 
                 if (Queue.Any())
                 {
-                    core.InAct(Queue.First());
+                    core.InAct(eventsQueue.Dequeue());
                 }
             }
         }
@@ -99,8 +99,8 @@ namespace Domain.Modeling.BaseEntities
             Console.WriteLine($"[Processor] ===== {Name}");
             Console.WriteLine($"Mean length of queue = " + MeanQueue / simulateTime);
             Console.WriteLine($"Max length of queue = " + MaxQueue);
-            Console.WriteLine($"Failure probability  = {FailedEvents / (double)(InputEvents)} % (succesful - {CompletedEvents}, failures - {FailedEvents}, total - {InputEvents})");
-            Console.WriteLine($"Working time = {WorkingTime / simulateTime} % (time - {cores.Select(c => c.WorkingTime).Sum()})");
+            Console.WriteLine($"Failure probability  = {FailedEvents / (double)(InputEvents)} (succesful - {CompletedEvents}, failures - {FailedEvents}, total - {InputEvents})");
+            Console.WriteLine($"Working time = {WorkingTime / simulateTime} (time - {cores.Select(c => c.WorkingTime).Sum()})");
         }
 
         public override void DoStatistic(double changedTime)
